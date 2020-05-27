@@ -25,7 +25,8 @@ func getStations(w http.ResponseWriter, r *http.Request) {
 	}
 	//Add the proper header values
 	header := w.Header()
-	header.Add("Content-Type", "application/json")
+	header.Set("Content-Type", "application/json")
+	header.Set("Access-Control-Allow-Origin", "*")
 
 	//Write response
 	fmt.Fprintf(w, string(data))
