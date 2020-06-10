@@ -17,6 +17,8 @@ func main() {
 	app := fiber.New()
 	app.Use(cors.New())
 
+	app.Static("/", "./FrontEnd")
+
 	app.Get("/stations", controllers.GetAllStations)
 
 	app.Listen(3000)
