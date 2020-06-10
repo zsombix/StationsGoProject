@@ -7,17 +7,31 @@ import (
 	// "log"
 	// "net/http"
 
+	"log"
+
+	"github.com/Kamva/mgm/v2"
 	"github.com/gofiber/cors"
 	"github.com/gofiber/fiber"
+	"go.mongodb.org/mongo-driver/mongo/options"
+
 	"github.com/zsombix/StationsGoProject/controllers"
 )
+
+func init() {
+	connectionString := "mongodb://localhost:27017"
+
+	err := mgm.SetDefaultConfig(nil, "stationsstudy", options.Client().ApplyURI(connectionString))
+	if err != nil {
+		log.Fatal(err)
+	}
+}
 
 func main() {
 
 	app := fiber.New()
 	app.Use(cors.New())
 
-	app.Static("/", "./FrontEnd")
+	app.Static("/", "./public")
 
 	app.Get("/stations", controllers.GetAllStations)
 
