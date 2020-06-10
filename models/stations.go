@@ -2,10 +2,10 @@ package stations
 
 //Station that is used in the project
 type Station struct {
-	ID        int32
-	Name      string
-	Latitude  float64
-	Longitude float64
+	ID        int32   `json:"id"`
+	Name      string  `json:"name"`
+	Latitude  float64 `json:"latitude"`
+	Longitude float64 `json:"longitude"`
 }
 
 //Stations is a list of available stations

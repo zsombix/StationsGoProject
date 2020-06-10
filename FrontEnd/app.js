@@ -14,7 +14,7 @@ function loadEventListiners(){
 }
 
 function loadStations(){
-  fetch('http://localhost:8080/stations')
+  fetch('http://localhost:3000/stations')
   .then(response => response.json())
   .then(data => {		
 		stations = data;
@@ -23,7 +23,7 @@ function loadStations(){
 			const li = document.createElement('li');
 			li.className = 'collection-item';
 			//Add the text
-			li.appendChild(document.createTextNode(station.Name));
+			li.appendChild(document.createTextNode(station.name));
 			//Add to the List
 			stationList.appendChild(li);
 		});
